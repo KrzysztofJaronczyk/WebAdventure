@@ -1,0 +1,51 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #333;
+	font-size: 36px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: aliceblue;
+	font-size: 24px;
+}
+
+.square {
+	width: 200px;
+	height: 200px;
+	margin-top: 30px;
+	border-radius: 25px;
+	background-color: blue;
+	box-shadow: blue 0px 0px 15px 0px;
+	border: 2px solid darkblue;
+	transition: 1s;
+}
+
+.square:hover {
+	box-shadow: 0 0 15px rgb(255, 0, 255);
+	background-color: rgb(255, 0, 255);
+	border: 2px solid rgb(255, 0, 255);
+}
+
+.translate:hover {
+	transform: translateX(-100%);
+}
+
+.scale:hover {
+	transform: scale(1.5);
+}
+
+.rotate:hover {
+	transform: rotate(120deg);
+}
+
+.skew:hover {
+	transform: skew(20deg);
+}
