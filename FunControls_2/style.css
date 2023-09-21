@@ -41,8 +41,8 @@ button:hover {
 }
 
 .btn-zoom:hover ~ .square {
-	zoom: 200%;
-	transform: translateX(-50%) translateY(-50px);
+	width: 200px;
+	height: 200px;
 }
 
 .btn-move {
