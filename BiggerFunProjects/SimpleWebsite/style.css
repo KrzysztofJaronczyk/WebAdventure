@@ -39,15 +39,15 @@ body {
 
 /* Header */
 
-.header-img{
+.header-img {
 	position: relative;
 	height: 300px;
-	background-image:url('img/water.jpg');
+	background-image: url('img/water.jpg');
 	background-size: cover;
 	background-position: 0 50%;
 }
 
-.header-text{
+.header-text {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -57,37 +57,85 @@ body {
 	letter-spacing: 4px;
 }
 
-.header-bg{
+.header-bg {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: #0096C7;
+	background-color: #0096c7;
 	opacity: 0.3;
 }
 
-.header-text h1{
+.header-text h1 {
 	font-size: 50px;
 	transition: font-size 1s, color 1s;
 }
 
-.header-text h1:hover{
-	color: #023E8A;
+.header-text h1:hover {
+	color: #023e8a;
 	font-size: 55px;
 }
 
-.header-text p{
+.header-text p {
 	font-size: 24px;
 	font-weight: bold;
 	transition: color 0.4s, scale 2s, letter-spacing 1s, padding-top 1s;
 }
 
-.header-text p:hover{
-	color: #023E8A;
+.header-text p:hover {
+	color: #023e8a;
 	scale: 1.2;
 	letter-spacing: 20px;
 	padding-top: 10px;
 }
+/* main */
 
+main {
+	margin: 50px auto;
+	width: 1200px;
+}
+
+main h2 {
+	text-align: center;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+}
+
+.about-us-box {
+	margin: 40px 0;
+	height: 300px;
+	position: relative;
+	background-attachment: fixed;
+	background-position: center;
+	border-radius: 25px 0;
+	overflow: hidden;
+}
+
+.about-us-text {
+	position: absolute;
+	bottom: 0;
+	height: 45%;
+	width: 100%;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.7);
+	text-align: center;
+}
+
+.about-us-text h3 {
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 20px 0;
+}
+
+.top {
+	background-image: url('img/1.jpg');
+}
+.middle {
+	background-image: url('img/2.jpg');
+}
+.bottom {
+	background-image: url('img/3.jpg');
+}
 /* footer */
 .footer {
 	background-color: #333;
@@ -96,7 +144,7 @@ body {
 	padding: 20px;
 }
 
-.footer-text{
+.footer-text {
 	color: #fff;
 }
 
@@ -105,7 +153,7 @@ body {
 	transition: 0.3s;
 }
 
-.footer-social:hover{
+.footer-social:hover {
 	transform: scale(1.1);
 }
 
