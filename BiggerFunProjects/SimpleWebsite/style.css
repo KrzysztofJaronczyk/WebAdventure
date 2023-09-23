@@ -87,3 +87,36 @@ body {
 	letter-spacing: 20px;
 	padding-top: 10px;
 }
+
+/* footer */
+.footer {
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+}
+
+.footer-text{
+	color: #fff;
+}
+
+.footer-social {
+	display: inline-block;
+	transition: 0.3s;
+}
+
+.footer-social:hover{
+	transform: scale(1.1);
+}
+
+.footer-social a {
+	color: #fff;
+	text-decoration: none;
+	padding: 0 10px;
+	transition: color 0.3s;
+	cursor: pointer;
+}
+
+.footer-social a:hover {
+	color: #3293e2;
+}
