@@ -36,3 +36,54 @@ body {
 .nav-item a:hover {
 	color: #3293e2;
 }
+
+/* Header */
+
+.header-img{
+	position: relative;
+	height: 300px;
+	background-image:url('img/water.jpg');
+	background-size: cover;
+	background-position: 0 50%;
+}
+
+.header-text{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	text-align: center;
+	letter-spacing: 4px;
+}
+
+.header-bg{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #0096C7;
+	opacity: 0.3;
+}
+
+.header-text h1{
+	font-size: 50px;
+	transition: font-size 1s, color 1s;
+}
+
+.header-text h1:hover{
+	color: #023E8A;
+	font-size: 55px;
+}
+
+.header-text p{
+	font-size: 24px;
+	font-weight: bold;
+	transition: color 0.4s, scale 2s, letter-spacing 1s, padding-top 1s;
+}
+
+.header-text p:hover{
+	color: #023E8A;
+	scale: 1.2;
+	letter-spacing: 20px;
+	padding-top: 10px;
+}
