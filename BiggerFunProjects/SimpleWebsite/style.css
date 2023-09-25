@@ -136,6 +136,102 @@ main h2 {
 .bottom {
 	background-image: url('img/3.jpg');
 }
+
+/* products */
+
+.water-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	text-decoration: none;
+	color: #333;
+	text-align: center;
+}
+
+.water-list li {
+	list-style: none;
+	margin: 20px 20px;
+	font-size: 20px;
+}
+
+/* pricing */
+
+.price-table {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	text-decoration: none;
+	color: #333;
+	text-align: center;
+}
+
+.price-table table {
+	border-collapse: collapse;
+	width: 50%;
+}
+
+.price-table table th {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.price-table table tr {
+	border: 1px solid #333;
+	padding: 10px;
+	font-weight: 400;
+}
+
+.price-table table tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.price-table table td {
+	padding: 10px;
+}
+
+/* contact */
+.contact {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.contact ul {
+	list-style: none;
+}
+
+.contact ul li {
+	margin: 20px 0;
+	font-size: 20px;
+	transition: transform 0.3s;
+}
+
+.contact ul li:hover {
+	transform: scale(1.1);
+}
+
+.contact ul li i {
+	margin-right: 10px;
+	font-size: 30px;
+	color: #0096c7;
+	margin-top: 2px;
+}
+
+.contact ul li a {
+	text-decoration: none;
+	color: #333;
+	font-weight: 600;
+	letter-spacing: 1px;
+	transition: color 0.3s;
+}
+
+.contact ul li a:hover {
+	color: #3293e2;
+}
+
 /* footer */
 .footer {
 	background-color: #333;
