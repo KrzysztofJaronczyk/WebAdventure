@@ -13,6 +13,31 @@ body {
 	width: 100%;
 	max-width: 1400px;
 }
+.hero-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hero-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+}
+
+.hero-text h1 {
+	margin-bottom: 5px;
+	text-shadow: 3px 3px 5px #000;
+	color: #ddd;
+}
+
+.hero-text span {
+	text-transform: uppercase;
+	color: #09f;
+}
 
 /* navigation */
 
@@ -42,6 +67,16 @@ nav {
 	display: none;
 }
 
+/* header */
+
+.header {
+	position: relative;
+	background-image: url(img/wsmall.jpg);
+	background-size: cover;
+	background-position: bottom;
+	height: 330px;
+}
+
 @media (min-width: 768px) {
 	.hamburger-menu {
 		display: none;
@@ -62,14 +97,29 @@ nav {
 
 	.nav-items a:hover {
 		color: #09f;
-	}	
+	}
+
+	.header {
+		background-image: url(img/wbig.jpg);
+		background-position: center;
+		height: 400px;
+	}
+
+	.hero-text h1 {
+		font-size: 36px;
+	}
+
+	.hero-text p {
+		font-size: 18px;
+	}
 }
 
-/* header */
+@media (min-width: 1200px) {
+	.hero-text h1 {
+		font-size: 48px;
+	}
 
-header {
-	background-image: url(../img/header.jpg);
-	background-size: cover;
-	background-position: center;
-	height: 100vh;
+	.hero-text p {
+		font-size: 24px;
+	}
 }
