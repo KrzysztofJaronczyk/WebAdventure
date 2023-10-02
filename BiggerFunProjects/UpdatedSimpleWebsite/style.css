@@ -8,6 +8,8 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+/* common styles */
+
 .wrapper {
 	margin: 0 auto;
 	width: 100%;
@@ -37,6 +39,12 @@ body {
 .hero-text span {
 	text-transform: uppercase;
 	color: #09f;
+}
+
+.section-title {
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	text-align: center;
 }
 
 /* navigation */
@@ -75,6 +83,48 @@ nav {
 	background-size: cover;
 	background-position: bottom;
 	height: 330px;
+}
+
+/* main */
+
+main {
+	margin: 60px 0;
+}
+
+.about-us-info {
+	margin: 20px 0;
+}
+
+.products {
+	margin: 60px auto;
+}
+.product {
+	position: relative;
+	height: 300px;
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+}
+
+
+.first-product {
+	background-image: url(img/water1small.jpg);
+}
+
+.second-product {
+	background-image: url(img/water2small.jpg);
+}
+
+.third-product {
+	background-image: url(img/water3small.jpg);
+}
+
+.fourth-product {
+	background-image: url(img/water4small.jpg);
+}
+
+.product h3 {
+	text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
