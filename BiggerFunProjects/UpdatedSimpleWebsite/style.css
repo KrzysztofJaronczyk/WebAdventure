@@ -93,6 +93,7 @@ main {
 
 .about-us-info {
 	margin: 20px 0;
+	padding: 0 20px;
 }
 
 .products {
@@ -161,6 +162,33 @@ main {
 
 	.hero-text p {
 		font-size: 18px;
+	}
+
+	.product h3 {
+		font-size: 24px;
+	}
+
+	.first-product {
+		background-image: url(img/water1big.jpg);
+	}
+	
+	.second-product {
+		background-image: url(img/water2big.jpg);
+	}
+	
+	.third-product {
+		background-image: url(img/water3big.jpg);
+	}
+	
+	.fourth-product {
+		background-image: url(img/water4big.jpg);
+	}
+}
+
+@media (min-width: 992px) {
+	.product{
+		display: inline-block;
+		width: 48%;
 	}
 }
 
