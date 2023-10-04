@@ -110,6 +110,8 @@ main {
 }
 
 .products {
+	position: relative;
+	text-align: center;
 	margin: 60px auto;
 }
 .product {
