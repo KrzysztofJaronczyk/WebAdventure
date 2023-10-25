@@ -1,0 +1,30 @@
+$size: 300px;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f1f1f1;
+	font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    position: relative;
+    top: 90px;
+	width: 100%;
+	max-width: 1600px;
+    display: flex;
+	margin: 0 auto;
+	padding: 0 25px;
+}
+
+.square {
+	width: $size;
+	height: $size;
+	position: relative;
+    background-color: blue;
+    margin: 0 auto;
+}
