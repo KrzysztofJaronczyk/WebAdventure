@@ -1,0 +1,60 @@
+@use './scss/reset.scss';
+@use './scss/colors.scss' as *;
+
+html {
+	font-size: 10px;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+h1 {
+	font-size: 3rem;
+	position: relative;
+    color: $header;
+}
+
+h2 {
+	font-size: 2.1rem;
+	position: relative;
+    color: $header;
+}
+
+h3 {
+	font-size: 1.8rem;
+	position: relative;
+    color: $header;
+}
+
+p {
+	font-size: 1.6rem;
+	position: relative;
+    color: $paragraph;
+}
+
+section {
+	height: 25vh;
+	text-align: center;
+}
+
+section.odd {
+    background-color: $blue;
+}
+
+section.even {
+    background-color: $royalblue;
+}
+
+@mixin circle{
+    width: 100px;
+    height: 100px;
+    margin: 30px auto;
+    background-color: $lime;
+    border: 3px solid $paragraph;
+    border-radius: 50%;
+}
+
+.circle {
+    @include circle;
+}
