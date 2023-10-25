@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  color: white;
+}
+
+.title {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: whitesmoke;
+  transition: 1s ease;
+}
+
+.title:hover {
+  color: purple;
+}
+
+li:nth-child(even) {
+  color: lime;
+}
+
+span:first-of-type {
+  color: yellow;
+}
+
+.test p:first-child,
+.test p:last-child {
+  color: red;
+}/*# sourceMappingURL=style.css.map */
