@@ -1,0 +1,45 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Montserrat, sans-serif;
+	font-size: 30px;
+	color: #fff;
+	background-color: #333;
+	overflow: hidden;
+}
+
+.square {
+	width: 400px;
+	height: 400px;
+    margin: 50px auto;
+	background-color: gold;
+	border: 3px solid black;
+	animation: color 5s 2s infinite;
+}
+
+@keyframes color {
+	0% {
+		width: 400px;
+		height: 400px;
+		background-color: gold;
+	}
+	50% {
+		background-color: red;
+		width: 600px;
+		height: 600px;
+		border-radius: 50%;
+        margin: 250px auto;
+	}
+	
+    100%{
+        border-radius: 0%;
+        width: 400px;
+		height: 400px;
+		background-color: gold;
+        margin: 50px auto;
+    }
+}
