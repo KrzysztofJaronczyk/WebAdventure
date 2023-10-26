@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  font-size: 30px;
+  color: #fff;
+  background-color: #333;
+  overflow: hidden;
+}
+
+div {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  margin: 50px auto;
+}
+
+.square {
+  background-color: red;
+  animation: square 4s;
+  animation-fill-mode: forwards;
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: green;
+  animation: circle 2s 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes square {
+  0% {
+    width: 300px;
+    height: 300px;
+  }
+  50% {
+    width: 600px;
+    height: 300px;
+  }
+  100% {
+    width: 300px;
+    height: 600px;
+    background-color: gold;
+  }
+}
+@keyframes circle {
+  from {
+    background-color: green;
+  }
+  to {
+    background-color: blue;
+  }
+}/*# sourceMappingURL=style.css.map */
