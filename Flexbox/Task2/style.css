@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #333;
+}
+
+section{
+    height: 600px;
+    display: flex;
+    background-color: gray;
+
+    justify-content: center;
+    flex-wrap: wrap ;
+}
+
+.square{
+    width: 20%;
+        /* line-height: 200px; */
+    text-align: center;
+}
+
+.one{
+    background-color: red;  
+}
+
+.two{
+    background-color: green;
+}
+
+.three{
+    background-color: blue;
+}
+
+.four{
+    background-color: yellow;
+}
