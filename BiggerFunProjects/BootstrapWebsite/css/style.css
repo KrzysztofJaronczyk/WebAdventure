@@ -46,7 +46,7 @@ nav .navbar-brand:hover {
 
 .hero-img {
   position: relative;
-  background-image: url("../img/pbig.jpg");
+  background-image: url("../img/psmall.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -69,4 +69,19 @@ nav .navbar-brand:hover {
   justify-content: center;
   height: 100%;
   font-weight: bold;
+}
+
+.fa-chevron-down {
+  position: absolute;
+  font-size: 32px;
+  bottom: 3%;
+  padding: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .hero-img {
+    background-image: url("../img/pbig.jpg");
+  }
 }/*# sourceMappingURL=style.css.map */

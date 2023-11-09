@@ -51,7 +51,7 @@ nav {
 
 .hero-img {
 	position: relative;
-	background-image: url('../img/pbig.jpg');
+	background-image: url('../img/psmall.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -93,5 +93,20 @@ nav {
 		justify-content: center;
 		height: 100%;
 		font-weight: bold;
+	}
+}
+
+.fa-chevron-down{
+	position: absolute;
+	font-size: 32px;
+	bottom: 3%;
+	padding: 5px;
+	color: $white;
+	cursor: pointer;
+}
+
+@media (min-width:1200px) {
+	.hero-img {
+		background-image: url('../img/pbig.jpg');
 	}
 }
