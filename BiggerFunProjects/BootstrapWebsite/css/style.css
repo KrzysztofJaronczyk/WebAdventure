@@ -8,10 +8,17 @@ body {
   background-color: #333;
   font-family: "Montserrat", sans-serif;
   color: #fff;
+  height: 100vh;
+}
+
+.blue-text {
+  color: #039dff;
 }
 
 nav {
   text-transform: uppercase;
+  z-index: 10;
+  width: 100%;
 }
 nav .nav-link,
 nav .navbar-brand,
@@ -20,6 +27,46 @@ nav .fa-bars {
   color: #fff;
 }
 nav .nav-link:focus,
-nav .nav-link:hover, nav .navbar-nav .nav-link.active, nav .navbar-nav .nav-link.show {
+nav .nav-link:hover,
+nav .navbar-nav .nav-link.active,
+nav .navbar-nav .nav-link.show {
   color: #039dff;
+}
+nav .navbar-toggler {
+  padding: 10px;
+}
+nav .navbar-brand {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+nav .navbar-brand:focus,
+nav .navbar-brand:hover {
+  color: #039dff;
+}
+
+.hero-img {
+  position: relative;
+  background-image: url("../img/pbig.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  z-index: 0;
+}
+.hero-img .hero-shadow {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+.hero-img .hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
