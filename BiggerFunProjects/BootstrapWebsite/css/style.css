@@ -80,6 +80,14 @@ nav .navbar-brand:hover {
   cursor: pointer;
 }
 
+@media (min-width: 768px) {
+  .hero-text h1 {
+    font-size: 48px;
+  }
+  .hero-text p {
+    font-size: 24px;
+  }
+}
 @media (min-width: 1200px) {
   .hero-img {
     background-image: url("../img/pbig.jpg");
