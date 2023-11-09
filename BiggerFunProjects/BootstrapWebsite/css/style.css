@@ -15,10 +15,16 @@ body {
   color: #039dff;
 }
 
+/* Navbar */
+.shadow-bg {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 nav {
   text-transform: uppercase;
   z-index: 10;
   width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 nav .nav-link,
 nav .navbar-brand,
