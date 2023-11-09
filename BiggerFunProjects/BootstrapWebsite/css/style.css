@@ -15,6 +15,19 @@ body {
   color: #039dff;
 }
 
+.section-title {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.underline {
+  margin: 0 auto 40px;
+  width: 50px;
+  height: 4px;
+  background-color: #039dff;
+  text-align: center;
+}
+
 /* Navbar */
 .shadow-bg {
   background-color: rgba(0, 0, 0, 0.8);
@@ -79,11 +92,25 @@ nav .navbar-brand:hover {
 
 .fa-chevron-down {
   position: absolute;
-  font-size: 32px;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 3%;
   padding: 5px;
+  font-size: 32px;
   color: #fff;
   cursor: pointer;
+}
+
+.aboutus i {
+  font-size: 40px;
+  margin-top: 24px;
+}
+.aboutus .aboutus-card-title {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+.aboutus .aboutus-card-text {
+  font-size: 14px;
 }
 
 @media (min-width: 768px) {
