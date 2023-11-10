@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+html {
+  scroll-padding-top: 72px;
+}
+
 body {
   background-color: #333;
   font-family: "Montserrat", sans-serif;
@@ -37,7 +41,7 @@ nav {
   text-transform: uppercase;
   z-index: 10;
   width: 100%;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 nav .nav-link,
 nav .navbar-brand,
@@ -112,6 +116,13 @@ nav .navbar-brand:hover {
 .aboutus .aboutus-card-text {
   font-size: 14px;
 }
+.aboutus [class^=col] {
+  transition: color 0.3s, transform 0.8s;
+}
+.aboutus [class^=col]:hover {
+  transform: scale(1.05);
+  color: #039dff;
+}
 
 @media (min-width: 768px) {
   .hero-text h1 {
@@ -119,6 +130,14 @@ nav .navbar-brand:hover {
   }
   .hero-text p {
     font-size: 24px;
+  }
+}
+@media screen and (max-width: 992px) {
+  nav {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  html {
+    scroll-padding-top: 74px;
   }
 }
 @media (min-width: 1200px) {
