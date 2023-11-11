@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-color: #333;
+  background-color: #ebecf2;
   font-family: "Montserrat", sans-serif;
   color: #fff;
   height: 100vh;
@@ -149,6 +149,10 @@ nav .navbar-brand:hover {
 }
 .portfolio .carousel-indicators {
   margin-bottom: 2rem;
+}
+
+.price-box {
+  margin: 20px;
 }
 
 @media (min-width: 768px) {
