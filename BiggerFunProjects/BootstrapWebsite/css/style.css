@@ -138,6 +138,19 @@ nav .navbar-brand:hover {
   z-index: -2;
 }
 
+.portfolio .carousel-item {
+  height: 600px;
+}
+.portfolio .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.7);
+  left: 0;
+  right: 0;
+  padding: 40px 0;
+}
+.portfolio .carousel-indicators {
+  margin-bottom: 2rem;
+}
+
 @media (min-width: 768px) {
   .hero-text h1 {
     font-size: 48px;
