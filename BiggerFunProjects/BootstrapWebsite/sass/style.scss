@@ -178,7 +178,7 @@ nav {
 	}
 }
 
-@media screen and (max-width: 992px) {
+@media (max-width: 992px) {
 	nav {
 		background-color: rgba(0, 0, 0, 0.8);
 	}
@@ -191,5 +191,9 @@ nav {
 @media (min-width: 1200px) {
 	.hero-img {
 		background-image: url('../img/pbig.jpg');
+	}
+
+	.aboutus-dark {
+		background-image: url('../img/cpubig.jpg');
 	}
 }
