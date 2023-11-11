@@ -77,13 +77,6 @@ nav .navbar-brand:hover {
   height: 100vh;
   z-index: 0;
 }
-.hero-img .hero-shadow {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 100%;
-  width: 100%;
-  z-index: -2;
-}
 .hero-img .hero-text {
   display: flex;
   flex-direction: column;
@@ -105,6 +98,9 @@ nav .navbar-brand:hover {
   cursor: pointer;
 }
 
+.aboutus {
+  color: #333;
+}
 .aboutus i {
   font-size: 40px;
   margin-top: 24px;
@@ -122,6 +118,24 @@ nav .navbar-brand:hover {
 .aboutus [class^=col]:hover {
   transform: scale(1.05);
   color: #039dff;
+}
+
+.aboutus-dark {
+  position: relative;
+  background-image: url("../img/cpusmall.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  z-index: 0;
+}
+
+.hero-shadow {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: -2;
 }
 
 @media (min-width: 768px) {
