@@ -151,8 +151,51 @@ nav .navbar-brand:hover {
   margin-bottom: 2rem;
 }
 
-.price-box {
+.prices {
+  color: #333;
+}
+.prices .price-box {
   margin: 20px;
+  padding: 30px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  transition: transform 0.5s;
+}
+.prices .price-box:hover {
+  transform: scale(1.05);
+}
+.prices p.price-title {
+  color: #039dff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+}
+.prices p i {
+  font-size: 20px;
+  padding: 0 5px;
+}
+.prices span {
+  font-weight: bold;
+}
+.prices .price-tag {
+  font-size: 24px;
+  font-weight: bold;
+}
+.prices button {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.price-info {
+  text-align: center;
+  margin-top: 20px;
+}
+.price-info a {
+  text-decoration: none;
+}
+
+.text-muted {
+  text-align: center;
+  color: gray;
 }
 
 @media (min-width: 768px) {

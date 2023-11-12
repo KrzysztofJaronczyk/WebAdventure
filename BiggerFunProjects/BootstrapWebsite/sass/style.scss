@@ -186,9 +186,58 @@ nav {
 }
 
 //prices
+.prices {
+	.price-box {
+		margin: 20px;
+		padding: 30px;
+		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+		transition: transform 0.5s;
+	}
 
-.price-box {
-	margin: 20px;
+	.price-box:hover {
+		transform: scale(1.05);
+	}
+
+	p.price-title{
+		color: $main-color;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 24px;
+	}
+
+	p i{
+		font-size: 20px;
+		padding: 0 5px;
+	}
+
+	span{
+		font-weight: bold;
+	}
+
+	.price-tag{
+		font-size: 24px;
+		font-weight: bold;
+	}
+
+	button{
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
+
+	color: $black;
+}
+
+.price-info{
+	text-align: center;
+	margin-top: 20px;
+	a{
+		text-decoration: none;
+	}
+}
+
+.text-muted{
+	text-align: center;
+	color: gray;
 }
 
 @media (min-width: 768px) {
