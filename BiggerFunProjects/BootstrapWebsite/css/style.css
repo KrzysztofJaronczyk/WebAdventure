@@ -210,6 +210,9 @@ nav .navbar-brand:hover {
   margin: 30px;
   transition: transform 0.3s;
 }
+.team .card-body {
+  height: 160px;
+}
 .team .card:hover {
   transform: scale(1.05);
 }
@@ -224,7 +227,6 @@ nav .navbar-brand:hover {
 }
 .team i {
   font-size: 20px;
-  padding: 0 20px;
   color: #0d6efd;
   transition: transform 0.5s;
 }
@@ -232,6 +234,11 @@ nav .navbar-brand:hover {
   transform: scale(1.2);
 }
 
+@media (max-width: 375px) {
+  .team img {
+    height: 200px;
+  }
+}
 @media (min-width: 768px) {
   .hero-text h1 {
     font-size: 48px;
