@@ -321,6 +321,42 @@ nav {
 	}
 }
 
+//contact section
+
+.contact {
+	.contact-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		.contact-item {
+			h1 {
+				text-transform: uppercase;
+				font-size: 32px;
+				margin-bottom: 15px;
+				letter-spacing: 2px;
+			}
+
+			i {
+				font-size: 40px;
+				margin: 20px;
+				color: $white;
+				transition: color 0.3s, transform 0.8s;
+			}
+
+			i:hover {
+				color: $main-color;
+				transform: scale(1.2);
+			}
+		}
+	}
+	position: relative;
+	background-image: url('../img/skylinesmall.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	z-index: 0;
+}
+
 @media (max-width: 375px) {
 	.team img {
 		height: 200px;
@@ -358,5 +394,8 @@ nav {
 	}
 	.team {
 		background-image: url('../img/meetingbig.jpg');
+	}
+	.contact {
+		background-image: url('../img/skylinebig.jpg');
 	}
 }
