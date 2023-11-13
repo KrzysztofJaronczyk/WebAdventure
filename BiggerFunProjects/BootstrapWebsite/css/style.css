@@ -234,6 +234,36 @@ nav .navbar-brand:hover {
   transform: scale(1.2);
 }
 
+.achivements .achivements-container {
+  position: relative;
+  width: 100%;
+}
+.achivements .achivement {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+.achivements .achivement i {
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+  transition: text-shadow 0.5s;
+}
+.achivements .achivement span {
+  display: block;
+  margin: 10px 0;
+  font-size: 24px;
+  color: #333;
+}
+.achivements .achivement p {
+  font-size: 14px;
+  color: #333;
+  text-transform: uppercase;
+}
+.achivements .achivement:hover i {
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+}
+
 @media (max-width: 375px) {
   .team img {
     height: 200px;
