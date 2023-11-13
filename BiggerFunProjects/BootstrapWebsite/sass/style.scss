@@ -240,6 +240,48 @@ nav {
 	color: gray;
 }
 
+//team section
+
+.team{
+	.card{
+		margin: 30px;
+		transition: transform 0.3s;
+	}
+
+	.card:hover{
+		transform: scale(1.05);
+	}
+
+	.card-title{
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	img{
+		height:300px;
+		object-fit: cover;
+	}
+
+	i{
+		font-size: 20px;
+		padding: 0 20px;
+		color: #0d6efd;
+		transition: transform 0.5s;
+	}
+
+	i:hover{
+		transform: scale(1.2);
+	}
+
+	position: relative;
+	background-image: url('../img/meetingsmall.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	z-index: 0;
+}
+
+
 @media (min-width: 768px) {
 	.hero-text {
 		h1 {
@@ -268,5 +310,8 @@ nav {
 
 	.aboutus-dark {
 		background-image: url('../img/cpubig.jpg');
+	}
+	.team{
+		background-image: url('../img/meetingbig.jpg');
 	}
 }

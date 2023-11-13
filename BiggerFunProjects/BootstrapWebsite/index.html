@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -228,7 +229,7 @@
         <section id="prices" class="prices py-5 bg-light">
             <h2 class="section-title">ceny</h2>
             <div class="underline"></div>
-         
+
             <div class="container">
                 <div class="price-wrap row text-center justify-content-center">
                     <div class="col-md-6 col-xl-4">
@@ -261,7 +262,8 @@
                             <p class="price-title">full pack</p>
                             <hr>
                             <p><span>Urządzenia: </span><i class="fas fa-mobile-alt"></i> <i class="fas fa-desktop"></i>
-                                <i class="fas fa-gamepad"></i></p>
+                                <i class="fas fa-gamepad"></i>
+                            </p>
                             <p><span>Długość gry: </span>Długa</p>
                             <p><span>Grafika: </span>Najlepsza</p>
                             <p><span>Online: </span>Tak</p>
@@ -270,20 +272,205 @@
                         </div>
                     </div>
                 </div>
-         
+
                 <p class="price-info">Skorzystaj z jednego z trzech głównych pakietów lub <a href="#contact">skontaktuj
                         się</a> z nami i ustal warunki indywidualne!</p>
                 <p class="text-muted">Pakiet <strong>FULL PACK</strong> zawiera wersję gier na urządzenia mobilne, PC
                     oraz konsole.</p>
             </div>
-         
         </section>
+
+        <section class="team" id="team">
+            <div class="hero-shadow"></div>
+            <div class="container">
+                <h2 class="section-title pt-5">Zespół</h2>
+                <div class="underline"></div>
+
+                <div class="card-group">
+                    <div class="card">
+                        <img src="./img/team/adult-2449725_1920.jpg" class="card-img-top" alt="teamMemberImage">
+                        <div class="card-body">
+                            <h5 class="card-title">Ceo</h5>
+                            <p class="card-text">Szef szefów. Nikt nie zna jego imienia. Podwładni mówią na niego "Pan
+                                Prezes".</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-body-secondary">
+                                <a href="#"><i class="fa-brands fa-facebook-f text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin text-primary"></i></a>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/team/woman-1320810_1920.jpg" class="card-img-top" alt="teamMemberImage">
+                        <div class="card-body">
+                            <h5 class="card-title">hr</h5>
+                            <p class="card-text">Paula zajmuje się rekrutowaniem młodych, gniewnych i namiętnych
+                                talentów.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-body-secondary">
+                                <a href="#"><i class="fa-brands fa-facebook-f text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin text-primary"></i></a>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/team/Pan_Wiesio.webp" class="card-img-top" alt="teamMemberImage">
+                        <div class="card-body">
+                            <h5 class="card-title">Grafik</h5>
+                            <p class="card-text">Pan Wiesio, no bo kto inny zajmuje się budowaniem i projektowaniem
+                                stron "na oko".</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-body-secondary">
+                                <a href="#"><i class="fa-brands fa-facebook-f text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin text-primary"></i></a>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/team/entrepreneur-2326419_1920.jpg" class="card-img-top" alt="teamMemberImage">
+                        <div class="card-body">
+                            <h5 class="card-title">Programista</h5>
+                            <p class="card-text">Tomek, nikt oprócz Prezesa nie wie czym tak naprawdę zajmuje się Tomek.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-body-secondary">
+                                <a href="#"><i class="fa-brands fa-facebook-f text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin text-primary"></i></a>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/team/women-1209678_1920.jpg" class="card-img-top" alt="teamMemberImage">
+                        <div class="card-body">
+                            <h5 class="card-title">Dział jakości</h5>
+                            <p class="card-text">Miłe panie sprawdzają starannie każdy nasz produkt.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-body-secondary">
+                                <a href="#"><i class="fa-brands fa-facebook-f text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter text-primary"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin text-primary"></i></a>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 

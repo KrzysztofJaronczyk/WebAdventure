@@ -198,6 +198,40 @@ nav .navbar-brand:hover {
   color: gray;
 }
 
+.team {
+  position: relative;
+  background-image: url("../img/meetingsmall.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 0;
+}
+.team .card {
+  margin: 30px;
+  transition: transform 0.3s;
+}
+.team .card:hover {
+  transform: scale(1.05);
+}
+.team .card-title {
+  text-transform: uppercase;
+  text-align: center;
+}
+.team img {
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.team i {
+  font-size: 20px;
+  padding: 0 20px;
+  color: #0d6efd;
+  transition: transform 0.5s;
+}
+.team i:hover {
+  transform: scale(1.2);
+}
+
 @media (min-width: 768px) {
   .hero-text h1 {
     font-size: 48px;
@@ -220,5 +254,8 @@ nav .navbar-brand:hover {
   }
   .aboutus-dark {
     background-image: url("../img/cpubig.jpg");
+  }
+  .team {
+    background-image: url("../img/meetingbig.jpg");
   }
 }/*# sourceMappingURL=style.css.map */
