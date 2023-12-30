@@ -1,0 +1,143 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100vh;
+	font-family: 'Ubuntu', sans-serif;
+	overflow: hidden;
+	color: #fff;
+	background: linear-gradient(10deg, #2483ff 60%, #2c6afb 60%);
+}
+
+nav {
+	margin-top: 100px;
+	background-color: #292929;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+	font-size: 24px;
+}
+
+.menu-item {
+	display: inline-block;
+	height: 100px;
+	width: 300px;
+	line-height: 100px;
+	cursor: pointer;
+	transition: background-clor 0.5s;
+}
+
+.menu-item:hover {
+	background-color: #1e1e1e;
+}
+
+.dropdown {
+	position: absolute;
+	width: 300px;
+}
+
+.dropdown li {
+	display: none;
+	opacity: 0;
+	background-color: #50515a;
+	transition: color 0.3s;
+}
+
+.dropdown li:hover {
+	color: #1e1e1e;
+}
+
+.menu-item:hover .dropdown li {
+	display: block;
+	animation: menu1 0.5s forwards;
+}
+
+.menu-item:hover .dropdown li:nth-child(2) {
+	animation-delay: 0.2s;
+}
+
+.menu-item:hover .dropdown li:nth-child(3) {
+	animation-delay: 0.4s;
+}
+
+.menu-item:hover .dropdown li:nth-child(4) {
+	animation-delay: 0.6s;
+}
+
+.menu-item:hover .dropdown li:nth-child(5) {
+	animation-delay: 0.8s;
+}
+
+.menu-item:hover .dropdown li:nth-child(6) {
+	animation-delay: 1s;
+}
+
+@keyframes menu1 {
+	0% {
+		opacity: 0;
+		transform: rotate(36deg);
+	}
+	100% {
+		opacity: 1;
+		transform: rotate(0);
+	}
+}
+
+/* item2 */
+
+.two:hover .dropdown li {
+	display: block;
+	animation: menu2 0.5s forwards;
+}
+
+@keyframes menu2 {
+	0% {
+		opacity: 0;
+		transform: translateY(60px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* item3 */
+
+.three:hover .dropdown li {
+	display: block;
+	animation: menu3 0.5s forwards;
+}
+
+@keyframes menu3 {
+	0% {
+		opacity: 0;
+		transform: rotateY(-60deg) translateX(60px);
+	}
+	100% {
+		opacity: 1;
+		transform: rotateY(0) translateX(0);
+	}
+}
+
+/* item4 */
+
+.four:hover .dropdown li {
+	display: block;
+	animation: menu4 0.5s forwards;
+}
+
+@keyframes menu4 {
+	0% {
+		opacity: 0;
+		transform: scale(0.8) rotateY(-60deg) translateY(-40px);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) rotateY(0) translateY(0);
+	}
+}
