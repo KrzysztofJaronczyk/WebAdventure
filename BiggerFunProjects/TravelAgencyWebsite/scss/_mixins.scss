@@ -15,3 +15,9 @@
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 }
+
+@mixin centered {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
