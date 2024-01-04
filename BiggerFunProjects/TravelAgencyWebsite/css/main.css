@@ -151,6 +151,7 @@ body {
   background: none;
   border: 1px solid transparent;
   cursor: pointer;
+  mix-blend-mode: difference;
   z-index: 1000;
 }
 .burger-btn:focus {
@@ -200,10 +201,8 @@ body {
   animation: navItemsAnimation 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
-.black-bars-color,
-.black-bars-color::before,
-.black-bars-color::after {
-  background-color: #2e2e2e;
+.white-section {
+  background-color: #fff;
 }
 
 .header {
