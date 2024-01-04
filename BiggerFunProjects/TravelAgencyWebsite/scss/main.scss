@@ -395,6 +395,71 @@ body {
 	}
 }
 
+//reviews
+
+@media (max-width: 767px) {
+	.reviews.section-padding {
+		padding: 6em 0;
+	}
+}
+
+.reviews {
+	&__box {
+		position: relative;
+		margin: 2em;
+		padding: 2em;
+		border-radius: 8px;
+		box-shadow: 3px 3px 10px rgba(46, 46, 46, 0.18);
+		background-color: $pure-white;
+		transition: transform 0.3s;
+
+		&:hover {
+			transform: scale(0.95);
+		}
+
+		&-img {
+			position: absolute;
+			top: 8%;
+			right: 25%;
+			transform: translate(50%, -50%);
+
+			img {
+				position: relative;
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+		}
+
+		&-info {
+			padding: 1em;
+			text-align: left;
+			font-size: 1.4rem;
+			color: $dark;
+		}
+
+		&-quote {
+			position: absolute;
+			left: 2em;
+			top: 2em;
+
+			svg {
+				width: 30px;
+				height: 30px;
+				color: $main-color;
+			}
+		}
+
+		&-text {
+			position: relative;
+			margin-top: 2em;
+			margin-bottom: 1em;
+			color: $dark;
+		}
+	}
+}
+
 //media
 
 @media (min-width: 576px) {
