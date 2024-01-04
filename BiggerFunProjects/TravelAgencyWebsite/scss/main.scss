@@ -20,6 +20,12 @@ body {
 	font-size: 1.6rem;
 }
 
+.white-section{
+	background-color: $pure-white;
+	h2{
+		color: $secondary-color !important;
+	}
+}
 //navigation
 .nav {
 	position: fixed;
@@ -129,6 +135,12 @@ body {
 
 .nav-items-animation {
 	animation: navItemsAnimation 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+
+.black-bars-color,
+.black-bars-color::before,
+.black-bars-color::after {
+	background-color: $dark;
 }
 
 //header

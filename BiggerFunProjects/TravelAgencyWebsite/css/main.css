@@ -94,6 +94,13 @@ body {
   font-size: 1.6rem;
 }
 
+.white-section {
+  background-color: #fff;
+}
+.white-section h2 {
+  color: #164dcc !important;
+}
+
 .nav {
   position: fixed;
   top: 0;
@@ -191,6 +198,12 @@ body {
 }
 .nav-items-animation {
   animation: navItemsAnimation 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+
+.black-bars-color,
+.black-bars-color::before,
+.black-bars-color::after {
+  background-color: #2e2e2e;
 }
 
 .header {
