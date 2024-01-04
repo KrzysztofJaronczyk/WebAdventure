@@ -1,3 +1,14 @@
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 19%;
+  }
+  50% {
+    background-position: 100% 82%;
+  }
+  100% {
+    background-position: 0% 19%;
+  }
+}
 .wrapper {
   margin: 0 auto;
   width: 100%;
@@ -109,7 +120,10 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(45deg, rgb(20, 105, 241), rgb(42, 10, 184));
+  background: linear-gradient(302deg, #0066ff, #2f7aec, #134083);
+  background-size: cover;
+  animation: AnimationName 19s ease infinite;
+  background-image: url("../img/wave-haikei.svg");
   transform: translateX(100%);
   transition: 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
   z-index: 100;
@@ -584,6 +598,9 @@ body {
 }
 
 @media (min-width: 576px) {
+  .nav__item {
+    font-size: 2.8rem;
+  }
   .dreams__box {
     flex-direction: row;
     justify-content: space-between;
@@ -609,6 +626,9 @@ body {
   .white-block {
     height: 50px;
     width: 45%;
+  }
+  .nav__item {
+    font-size: 3.2rem;
   }
   .header__heading {
     font-size: 6.6rem;
@@ -705,7 +725,7 @@ body {
     font-size: 10rem;
   }
   .nav__item {
-    font-size: 4.8rem;
+    font-size: 3.2rem;
   }
   .dreams__box {
     margin: 5em 0;

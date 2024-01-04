@@ -29,3 +29,58 @@
 	border-radius: 8px;
 	font-size: 1.6rem;
 }
+
+@mixin backgroundGradniet {
+	background: linear-gradient(302deg, #0066ff, #2f7aec, #134083);
+	background-size: cover;
+
+	-webkit-animation: AnimationName 19s ease infinite;
+	-moz-animation: AnimationName 19s ease infinite;
+	-o-animation: AnimationName 19s ease infinite;
+	animation: AnimationName 19s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+	0% {
+		background-position: 0% 19%;
+	}
+	50% {
+		background-position: 100% 82%;
+	}
+	100% {
+		background-position: 0% 19%;
+	}
+}
+@-moz-keyframes AnimationName {
+	0% {
+		background-position: 0% 19%;
+	}
+	50% {
+		background-position: 100% 82%;
+	}
+	100% {
+		background-position: 0% 19%;
+	}
+}
+@-o-keyframes AnimationName {
+	0% {
+		background-position: 0% 19%;
+	}
+	50% {
+		background-position: 100% 82%;
+	}
+	100% {
+		background-position: 0% 19%;
+	}
+}
+@keyframes AnimationName {
+	0% {
+		background-position: 0% 19%;
+	}
+	50% {
+		background-position: 100% 82%;
+	}
+	100% {
+		background-position: 0% 19%;
+	}
+}
