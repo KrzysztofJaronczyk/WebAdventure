@@ -1,10 +1,6 @@
 @use '_colors' as *;
 @use '_animations' as *;
 
-@use '_small' as *;
-@use '_medium' as *;
-@use '_large' as *;
-
 *,
 *::before,
 *::after {
@@ -95,6 +91,7 @@ h1.company-name {
 		bottom: 2em;
 		right: -3em;
 		width: 50%;
+		z-index: -5;
 		animation: rotate-right 55s infinite linear;
 	}
 
@@ -138,15 +135,13 @@ h1.company-name {
 		&--active {
 			transform: translateX(0);
 		}
-
-
 	}
 
 	&-desktop {
 		display: none;
 	}
 
-	&__link{
+	&__link {
 		position: relative;
 		display: inline-block;
 		margin: 0.5em;
@@ -161,19 +156,10 @@ h1.company-name {
 			color: $gold;
 		}
 
-		&::before{
-			position: absolute;
-			top: 0;
-			left: 0;
-			content: '';
-			width: 100%;
-			height: 100%;
-			border: 1px solid $gold;
-			opacity: 0;
-
-			&:hover::before{
-				animation: pulse 1s;
-			}
-		}
+		
 	}
 }
+
+@import '_small';
+@import '_medium';
+@import '_large';
