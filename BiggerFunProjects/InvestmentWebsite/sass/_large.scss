@@ -1,6 +1,15 @@
 @use '_colors' as *;
 
 @media (min-width: 992px) {
+	.section-title{
+		font-size: 4.8rem;
+
+		&::before {
+			height: 4px;
+		}
+	}
+
+
 	h1.company-name {
 		font-size: 6rem;
 	}
@@ -59,7 +68,7 @@
 			display: block;
 			top: 10em;
 			left: 35%;
-			width: 5px;
+			width: 120px;
 			animation: rotate-left 55s infinite linear;
 		}
 	}
