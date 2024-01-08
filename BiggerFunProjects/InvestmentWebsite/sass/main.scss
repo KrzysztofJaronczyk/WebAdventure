@@ -287,7 +287,7 @@ h1.company-name {
 		margin-bottom: 0.5em;
 	}
 
-	&__box-link{
+	&__box-link {
 		display: block;
 		margin-bottom: 2em;
 		font-weight: bold;
@@ -296,13 +296,50 @@ h1.company-name {
 		text-align: right;
 		transition: color 0.3s;
 
-		&:hover{
+		&:hover {
 			color: $darkgold;
 		}
 	}
 
-	&__bg-icon{
+	&__bg-icon {
 		display: none;
+	}
+}
+
+//plans
+
+.plans {
+	padding: 6em 2em;
+	background-color: $darker;
+
+	&__box {
+		margin: 1em 0;
+		padding: 1.2em 1em;
+		text-align: center;
+		border: 1px solid transparent;
+		border-radius: 8px;
+		background-color: $dark;
+		cursor: pointer;
+		transition: background-color 0.3s, border 0.3s;
+
+		&:hover {
+			background-color: $darker;
+			border: 1px solid $gold;
+		}
+	}
+
+	&__item{
+		margin: 1em 0;
+	}
+	&__item-icon {
+		margin-bottom: 1.5em;
+		margin-left: 2em;
+		width: 40px;
+		height: 40px;
+		color: $gold;
+	}
+	&__item-name{
+		color: $gold;
 	}
 }
 
