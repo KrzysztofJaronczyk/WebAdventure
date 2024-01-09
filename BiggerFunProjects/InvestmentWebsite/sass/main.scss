@@ -123,7 +123,7 @@ h1.company-name {
 }
 
 .hamburger {
-	position: absolute;
+	position: fixed;
 	top: 3em;
 	left: 1em;
 	transform: translateY(-50%);
@@ -139,7 +139,7 @@ h1.company-name {
 
 .nav {
 	&-mobile {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
