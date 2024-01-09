@@ -23,3 +23,14 @@ const handleCurrentYear = () => {
 }
 
 handleCurrentYear()
+
+const handleTitle = () => {
+	const title = document.querySelector('title')
+	const hidden = 'Give us your money, why not? xD'
+	const visible = 'Ridiculus Investment'
+	const isVisible = document.visibilityState === 'visible'
+
+	title.textContent = isVisible ? visible : hidden
+}
+
+addEventListener('visibilitychange', handleTitle)
