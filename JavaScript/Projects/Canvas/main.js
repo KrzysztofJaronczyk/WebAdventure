@@ -48,10 +48,17 @@ class Ball {
 	}
 
 	split() {
-		if (this.radius > 10) {
-			this.radius /= 2
-			balls.push(new Ball(this.x, this.y, this.radius, -this.speedX, -this.speedY))
-		}
+		if (this.radius < 10) 
+		balls.splice(balls.indexOf(this), 1); // Remove the original ball
+	else {
+		const splitFactor = 2;
+		const newRadius = this.radius / splitFactor;
+		const newSpeedX = this.speedX * splitFactor;
+		const newSpeedY = this.speedY * splitFactor;
+		balls.push(new Ball(this.x, this.y, newRadius, newSpeedX, newSpeedY));
+		balls.push(new Ball(this.x, this.y, newRadius, -newSpeedX, -newSpeedY));
+		balls.splice(balls.indexOf(this), 1); // Remove the original ball
+	}
 	}
 }
 
@@ -93,7 +100,7 @@ class Player {
 
 	draw() {
 		// Draw the player
-		// context.fillStyle = 'red'
+		
 		context.fillRect(this.x, canvas.height - this.height, this.width, this.height)
 	}
 
@@ -126,6 +133,26 @@ function drawLineBetweenBalls(ball1, ball2) {
 	}
 }
 
+
+function checkHarpoonBallCollisions() {
+    for (let i = harpoons.length - 1; i >= 0; i--) {
+        for (let j = balls.length - 1; j >= 0; j--) {
+            if (isHarpoonHittingBall(harpoons[i], balls[j])) {
+                balls[j].split();
+                harpoons.splice(i, 1); // Remove harpoon after hitting
+                break; // Break to avoid checking other balls with this harpoon
+            }
+        }
+    }
+}
+
+function isHarpoonHittingBall(harpoon, ball) {
+    // Simple collision detection logic
+    return harpoon.x > ball.x - ball.radius && harpoon.x < ball.x + ball.radius &&
+           harpoon.y > ball.y - ball.radius;
+}
+
+
 function updateGame() {
     for (const ball of balls) {
         ball.update(canvas.width, canvas.height);
@@ -135,6 +162,7 @@ function updateGame() {
 
     // Remove harpoons that are off-screen
     harpoons = harpoons.filter(harpoon => harpoon.y > 0);
+	checkHarpoonBallCollisions();
 }
 
 function drawGame() {
