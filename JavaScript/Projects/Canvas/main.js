@@ -1,20 +1,22 @@
-const container = document.querySelector('.container')
-const canvas = document.createElement('canvas')
-canvas.width = container.offsetWidth
-canvas.height = container.offsetHeight
-container.appendChild(canvas)
+const container = document.querySelector('.container');
+const canvas = document.createElement('canvas');
+canvas.width = container.offsetWidth;
+canvas.height = container.offsetHeight;
+container.appendChild(canvas);
 
-const context = canvas.getContext('2d')
+const context = canvas.getContext('2d');
 
-const startBtn = document.getElementById('startBtn')
-const resetBtn = document.getElementById('resetBtn')
-const numBallsInput = document.getElementById('numBalls')
-const distInput = document.getElementById('dist')
-const attractInput = document.getElementById('attract')
-const clickToleranceInput = document.getElementById('tolerance')
+const startBtn = document.getElementById('startBtn');
+const resetBtn = document.getElementById('resetBtn');
+const numBallsInput = document.getElementById('numBalls');
+const distInput = document.getElementById('dist');
+const attractInput = document.getElementById('attract');
+const clickToleranceInput = document.getElementById('tolerance');
 
-let balls = []
-let isGameRunning = false
+let balls = [];
+let isGameRunning = false;
+let player;
+let harpoons = [];
 
 class Ball {
 	constructor(x, y, radius, speedX, speedY) {
@@ -44,7 +46,62 @@ class Ball {
 			this.speedY = -this.speedY
 		}
 	}
+
+	split() {
+		if (this.radius > 10) {
+			this.radius /= 2
+			balls.push(new Ball(this.x, this.y, this.radius, -this.speedX, -this.speedY))
+		}
+	}
 }
+
+class Harpoon {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.speed = -10; // Speed at which the harpoon moves
+    }
+
+    draw() {
+        context.beginPath();
+        context.moveTo(this.x, this.y);
+        context.lineTo(this.x, 0);
+        context.stroke();
+    }
+
+    update() {
+        this.y += this.speed;
+    }
+}
+
+class Player {
+	constructor() {
+		this.x = canvas.width / 2 // Start in the middle
+		this.width = 50 // Width of the player
+		this.height = 80 // Height of the player
+		this.speed = 15 // Movement speed
+	}
+
+	move(direction) {
+		// Update player position based on direction
+		if (direction === 'left') {
+			this.x = Math.max(0, this.x - this.speed)
+		} else if (direction === 'right') {
+			this.x = Math.min(canvas.width - this.width, this.x + this.speed)
+		}
+	}
+
+	draw() {
+		// Draw the player
+		// context.fillStyle = 'red'
+		context.fillRect(this.x, canvas.height - this.height, this.width, this.height)
+	}
+
+	shoot() {
+        harpoons.push(new Harpoon(this.x + this.width / 2, canvas.height - this.height));
+    }
+}
+
 
 function createBalls(count) {
 	for (let i = 0; i < count; i++) {
@@ -52,9 +109,9 @@ function createBalls(count) {
 		//never outside the canvas
 		let x = Math.random() * (canvas.width - radius * 2) + radius
 		let y = Math.random() * (canvas.height - radius * 2) + radius
-        let speedFactor = 20;
-        let speedX = (Math.random() - 0.5) * (speedFactor / radius);
-        let speedY = (Math.random() - 0.5) * (speedFactor / radius);
+		let speedFactor = 20
+		let speedX = (Math.random() - 0.5) * (speedFactor / radius)
+		let speedY = (Math.random() - 0.5) * (speedFactor / radius)
 		balls.push(new Ball(x, y, radius, speedX, speedY))
 	}
 }
@@ -70,99 +127,53 @@ function drawLineBetweenBalls(ball1, ball2) {
 }
 
 function updateGame() {
-	for (const ball of balls) {
-		ball.update(canvas.width, canvas.height)
-	}
+    for (const ball of balls) {
+        ball.update(canvas.width, canvas.height);
+    }
+
+    harpoons.forEach(harpoon => harpoon.update());
+
+    // Remove harpoons that are off-screen
+    harpoons = harpoons.filter(harpoon => harpoon.y > 0);
 }
 
 function drawGame() {
-	context.clearRect(0, 0, canvas.width, canvas.height)
-	for (let i = 0; i < balls.length; i++) {
-		balls[i].draw(context)
-		for (let j = i + 1; j < balls.length; j++) {
-			drawLineBetweenBalls(balls[i], balls[j])
-		}
-	}
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    player.draw();
+    balls.forEach(ball => ball.draw(context));
+    harpoons.forEach(harpoon => harpoon.draw());
 }
-let lastTime = 0
 
 function gameLoop(timestamp) {
-	if (!isGameRunning) return
-	const deltaTime = timestamp - lastTime
-	lastTime = timestamp
-	const fps = Math.round(1000 / deltaTime)
-
-	updateGame()
-	drawGame()
-	drawFPS(fps)
-    countBalls()
-	requestAnimationFrame(gameLoop)
+    if (!isGameRunning) return;
+    updateGame();
+    drawGame();
+    requestAnimationFrame(gameLoop);
 }
 
-canvas.addEventListener('mousemove', (event) => {
-    const rect = canvas.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
-    attractOrRepelBalls(mouseX, mouseY);
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowLeft') {
+        player.move('left');
+    } else if (event.key === 'ArrowRight') {
+        player.move('right');
+    } else if (event.key === ' ') { // Spacebar to shoot
+        player.shoot();
+    }
 });
 
-function attractOrRepelBalls(mouseX, mouseY) {
-    const force = parseFloat(attractInput.value);
-    balls.forEach(ball => {
-        const dx = ball.x - mouseX;
-        const dy = ball.y - mouseY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 50) {
-            ball.speedX = dx / distance * force;
-            ball.speedY = dy / distance * force;
-        }
-    });
-}
-
-canvas.addEventListener('click', event => {
-	const rect = canvas.getBoundingClientRect()
-	const clickX = event.clientX - rect.left
-	const clickY = event.clientY - rect.top
-	for (let i = 0; i < balls.length; i++) {
-		const ball = balls[i]
-		const distance = Math.sqrt((clickX - ball.x) ** 2 + (clickY - ball.y) ** 2)
-		const tolerance = parseFloat(clickToleranceInput.value) // extra margin
-		if (distance < ball.radius + tolerance) {
-			balls.splice(i, 1)
-			createBalls(2) // add 2 balls
-			break
-		}
-	}
-})
-
 function startGame() {
-	isGameRunning = true
-	createBalls(parseInt(numBallsInput.value))
-	requestAnimationFrame(gameLoop)
+    isGameRunning = true;
+    player = new Player(); // Initialize the player
+    createBalls(parseInt(numBallsInput.value));
+    requestAnimationFrame(gameLoop);
 }
 
 function resetGame() {
-	isGameRunning = false
-	balls = []
-	context.clearRect(0, 0, canvas.width, canvas.height)
+    isGameRunning = false;
+    balls = [];
+    harpoons = [];
+    context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function resizeCanvas() {
-	canvas.width = container.offsetWidth
-	canvas.height = container.offsetHeight
-}
-
-function drawFPS(fps) {
-	context.font = '20px Arial'
-	context.fillText(`FPS: ${fps}`, 30, 30)
-}
-
-function countBalls() {
-    context.font = '20px Arial'
-    context.fillText(`Balls: ${balls.length}`, canvas.width-110, 30)
-}
-
-//listeners
-startBtn.addEventListener('click', () => startGame())
-resetBtn.addEventListener('click', () => resetGame())
-window.addEventListener('resize', resizeCanvas)
+startBtn.addEventListener('click', () => startGame());
+resetBtn.addEventListener('click', () => resetGame());
