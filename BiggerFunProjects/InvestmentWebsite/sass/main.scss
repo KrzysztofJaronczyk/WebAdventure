@@ -86,7 +86,7 @@ h1.company-name {
 		position: relative;
 		width: 100%;
 		height: 100%;
-		background-image: url('/img/bitcoin-small.jpg');
+		background-image: url('../img/bitcoin-small.jpg');
 		background-size: cover;
 		background-position: center;
 		filter: sepia();
@@ -460,7 +460,8 @@ h1.company-name {
 		cursor: pointer;
 		transition: background-color 0.3s, color 0.3s;
 
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			outline: none;
 			background-color: $gold;
 			color: $dark;
