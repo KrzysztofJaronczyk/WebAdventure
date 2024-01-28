@@ -65,35 +65,35 @@ let kunaiImage = new Image()
 kunaiImage.src = '/animations/Kunai.png' // Replace with the correct path
 
 class Harpoon {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.speed = -10; // Adjust speed as necessary
-        this.angle = Math.PI / 2; // Rotate 90 degrees (in radians)
-        this.scale = 0.5; // Scale factor for the kunai size
-    }
+	constructor(x, y) {
+		this.x = x
+		this.y = y
+		this.speed = -10 // Adjust speed as necessary
+		this.angle = Math.PI / 2 // Rotate 90 degrees (in radians)
+		this.scale = 0.5 // Scale factor for the kunai size
+	}
 
-    draw() {
-        context.save(); // Save current state of the canvas
+	draw() {
+		context.save() // Save current state of the canvas
 
-        // Move to the position where the kunai will be drawn
-        context.translate(this.x, this.y);
+		// Move to the position where the kunai will be drawn
+		context.translate(this.x, this.y)
 
-        // Rotate the canvas
-        context.rotate(-this.angle); // Negative for counterclockwise rotation
+		// Rotate the canvas
+		context.rotate(-this.angle) // Negative for counterclockwise rotation
 
-        // Draw the kunai (adjust for smaller size)
-        const scaledWidth = kunaiImage.width * this.scale;
-        const scaledHeight = kunaiImage.height * this.scale;
-        context.drawImage(kunaiImage, -scaledWidth / 2, -scaledHeight / 2, scaledWidth, scaledHeight);
+		// Draw the kunai (adjust for smaller size)
+		const scaledWidth = kunaiImage.width * this.scale
+		const scaledHeight = kunaiImage.height * this.scale
+		context.drawImage(kunaiImage, -scaledWidth / 2, -scaledHeight / 2, scaledWidth, scaledHeight)
 
-        context.restore(); // Restore canvas state
-    }
+		context.restore() // Restore canvas state
+	}
 
-    update() {
-        this.y += this.speed;
-        // Optional: Update angle if kunai rotation should change over time
-    }
+	update() {
+		this.y += this.speed
+		// Optional: Update angle if kunai rotation should change over time
+	}
 }
 class Player {
 	constructor() {
@@ -105,7 +105,9 @@ class Player {
 		this.frameIndex = 0
 		this.isMoving = false
 		this.isShooting = false
-		this.direction = 'right';
+		this.direction = 'right'
+		this.lastShootTime = 0
+		this.shootInterval = 1000
 	}
 	updateAnimation() {
 		this.frameIndex++
@@ -114,50 +116,53 @@ class Player {
 		}
 	}
 	move(direction) {
-        this.isMoving = true;
-        this.currentAnimation = 'run';
-        this.direction = direction; // Update direction based on movement
+		this.isMoving = true
+		this.currentAnimation = 'run'
+		this.direction = direction // Update direction based on movement
 
-        if (direction === 'left') {
-            this.x = Math.max(0, this.x - this.speed);
-        } else if (direction === 'right') {
-            this.x = Math.min(canvas.width - this.width, this.x + this.speed);
-        }
-    }
-
+		if (direction === 'left') {
+			this.x = Math.max(0, this.x - this.speed)
+		} else if (direction === 'right') {
+			this.x = Math.min(canvas.width - this.width, this.x + this.speed)
+		}
+	}
 
 	stop() {
 		this.isMoving = false
 	}
 
 	draw() {
-        context.save(); // Save the current state of the canvas
+		context.save() // Save the current state of the canvas
 
-        // Flip the image when moving left
-        if (this.direction === 'left') {
-            context.scale(-1, 1);
-            context.translate(-this.x - this.width, 0); // Adjust position after flipping
-        } else {
-            context.translate(this.x, 0); // Normal translation for right movement
-        }
+		// Flip the image when moving left
+		if (this.direction === 'left') {
+			context.scale(-1, 1)
+			context.translate(-this.x - this.width, 0) // Adjust position after flipping
+		} else {
+			context.translate(this.x, 0) // Normal translation for right movement
+		}
 
-        let frame = animations[this.currentAnimation][this.frameIndex];
-        context.drawImage(frame, 0, canvas.height - this.height, this.width, this.height);
+		let frame = animations[this.currentAnimation][this.frameIndex]
+		context.drawImage(frame, 0, canvas.height - this.height, this.width, this.height)
 
-        context.restore(); // Restore the original state of the canvas
-        this.updateAnimation();
-    }
+		context.restore() // Restore the original state of the canvas
+		this.updateAnimation()
+	}
 
 	shoot() {
-		harpoons.push(new Harpoon(this.x + this.width / 2, canvas.height - this.height / 2))
-		if (!this.isShooting) {
-			this.isShooting = true
-			this.currentAnimation = 'throw'
-			this.frameIndex = 0 // Restart the animation
-			setTimeout(() => {
-				this.isShooting = false
-				this.currentAnimation = 'idle'
-			}, (animations.throw.length * 1000) / 60) // Animation duration
+		const currentTime = Date.now()
+		if (currentTime - this.lastShootTime > this.shootInterval && harpoons.length === 0) {
+			harpoons.push(new Harpoon(this.x + this.width / 2, canvas.height - this.height))
+			this.lastShootTime = currentTime
+			if (!this.isShooting) {
+				this.isShooting = true
+				this.currentAnimation = 'throw'
+				this.frameIndex = 0 // Restart the animation
+				setTimeout(() => {
+					this.isShooting = false
+					this.currentAnimation = 'idle'
+				}, (animations.throw.length * 1000) / 60) // Animation duration
+			}
 		}
 	}
 }
@@ -192,16 +197,17 @@ function drawLineBetweenBalls(ball1, ball2) {
 }
 
 function checkHarpoonBallCollisions() {
-	for (let i = harpoons.length - 1; i >= 0; i--) {
-		for (let j = balls.length - 1; j >= 0; j--) {
-			if (isHarpoonHittingBall(harpoons[i], balls[j])) {
-				balls[j].split()
-				harpoons.splice(i, 1) // Remove harpoon after hitting
-				break // Break to avoid checking other balls with this harpoon
-			}
-		}
-	}
+    for (let i = harpoons.length - 1; i >= 0; i--) {
+        for (let j = balls.length - 1; j >= 0; j--) {
+            if (isHarpoonHittingBall(harpoons[i], balls[j])) {
+                balls[j].split();
+                harpoons.splice(i, 1); // Remove harpoon on collision
+                return; // Exit function to prevent further checks
+            }
+        }
+    }
 }
+
 
 function isHarpoonHittingBall(harpoon, ball) {
 	// Simple collision detection logic
