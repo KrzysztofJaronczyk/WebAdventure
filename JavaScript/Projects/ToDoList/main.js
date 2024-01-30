@@ -5,10 +5,12 @@ let ulList
 let newTodo
 let div
 
-const popup = document.querySelector('.popup')
-const popupInput = document.querySelector('.popup-input')
-const popupConfirm = document.querySelector('.popup-btn .accept')
-const popupCancel = document.querySelector('.popup-btn .cancel')
+let popup
+let popupInfo
+let todoToEdit
+let popupInput
+let popupAddBtn
+let popupCloseBtn
 
 const main = () => {
 	prepareDOMElements()
@@ -20,11 +22,20 @@ const prepareDOMElements = () => {
 	errorInfo = document.querySelector('.error-info')
 	addBtn = document.querySelector('.btn-add')
 	ulList = document.querySelector('.todolist ul')
+
+    popup = document.querySelector('.popup')
+    popupInfo = document.querySelector('.popup-info')
+    popupInput = document.querySelector('.popup-input')
+    popupAddBtn = document.querySelector('.accept')
+    popupCloseBtn = document.querySelector('.cancel')
 }
 
 const prepareDOMEvents = () => {
 	addBtn.addEventListener('click', addNewTodo)
 	ulList.addEventListener('click', checkClick)
+    popupCloseBtn.addEventListener('click', closePopup)
+    popupAddBtn.addEventListener('click', changeTodo)
+    todoInput.addEventListener('keyup', enterCheck)
 }
 
 const addNewTodo = () => {
@@ -58,6 +69,41 @@ const checkClick = e => {
 	} else if (e.target.matches('.delete')) {
 		deleteTask(e)
 	}
+}
+
+const changeTodo = () => {
+    if (popupInput.value !== '') {
+        todoToEdit.firstChild.textContent = popupInput.value
+        closePopup()
+    } else {
+        popupInfo.textContent = 'Enter the task!'
+    }
+}
+
+const editTask = e => {
+    todoToEdit = e.target.closest('li')
+    popupInput.value = todoToEdit.firstChild.textContent
+    popup.style.display = 'flex'
+}
+
+const deleteTask = e => {
+    e.target.closest('li').remove()
+    const allTasks = ulList.querySelectorAll('li')
+    if (allTasks.length === 0) {
+        errorInfo.textContent = 'No tasks on the list'
+    }
+}
+
+const enterCheck = e => {
+    if (e.key === 'Enter') {
+        addNewTodo()
+    }
+}
+
+const closePopup = () => {
+    popupInput.value = ''
+    popup.style.display = 'none'
+    popupInfo.textContent = ''
 }
 
 document.addEventListener('DOMContentLoaded', main)
