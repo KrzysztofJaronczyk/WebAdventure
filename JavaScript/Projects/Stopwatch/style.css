@@ -5,8 +5,11 @@
 }
 
 :root {
-	--first-color: #fa1406;
-	--second-color: #d2c7be;
+	--first-color: rgb(235, 0, 0);
+	--second-color: white;
+	--third-color: rgb(0, 235, 0);
+	--fourth-color: rgb(0, 235, 235);
+	--fifth-color: rgb(235, 0, 235);
 }
 
 body {
@@ -33,7 +36,8 @@ body {
 	color: white;
 }
 
-.info {
+.info,
+.info2 {
 	position: absolute;
 	top: 6px;
 	right: 14px;
@@ -44,7 +48,72 @@ body {
 	transition: color 0.3s;
 }
 
-.info:hover {
+.info2 {
+	top: 6px;
+	right: 50px;
+}
+
+.info:hover,
+.info2:hover {
+	color: var(--first-color);
+}
+
+.colors {
+	position: absolute;
+	/* display: flex; */
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	top: 60px;
+	right: 14px;
+	width: 50px;
+	height: 200px;
+	color: var(--second-color);
+	transition: color 0.3s;
+}
+
+.circle {
+	position: relative;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	margin: 10px auto;
+	cursor: pointer;
+	transition: box-shadow 0.3s, width 0.3s, height 0.3s;
+}
+
+.circle:hover {
+	box-shadow: 0 0 25px var(--circle-color);
+	width: 22px;
+	height: 22px;
+}
+.circle.one {
+	background-color: rgb(235, 0, 0);
+	box-shadow: 0 0 15px rgb(235, 0, 0);
+	--circle-color: rgb(235, 0, 0);
+}
+
+.circle.two {
+	background-color: var(--fifth-color);
+	box-shadow: 0 0 15px var(--fifth-color);
+	--circle-color: var(--fifth-color);
+}
+
+.circle.three {
+	background-color: var(--third-color);
+	box-shadow: 0 0 15px var(--third-color);
+	--circle-color: var(--third-color);
+}
+
+.circle.four {
+	background-color: var(--fourth-color);
+	box-shadow: 0 0 15px var(--fourth-color);
+	--circle-color: var(--fourth-color);
+}
+
+.colors:hover {
 	color: var(--first-color);
 }
 
@@ -95,6 +164,14 @@ button:focus {
 .history {
 	flex-grow: 1;
 	text-transform: uppercase;
+}
+
+.time-list {
+	display: none;
+}
+
+.show {
+	display: block !important;
 }
 
 .time-list li {
@@ -159,10 +236,8 @@ button:focus {
 @keyframes show-modal {
 	0% {
 		opacity: 0;
-		transform: translate(-50%, -50%) scale(0.5);
 	}
 	100% {
 		opacity: 1;
-		transform: translate(-50%, -50%) scale(1);
 	}
 }
