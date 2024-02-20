@@ -32,6 +32,7 @@ const createNewTransaction = () => {
 	newTransaction.setAttribute('id', `${ID}`)
 
 	checkCategory(selectedCategory)
+	console.log(categoryIcon)
 
 	newTransaction.innerHTML = `
 		<p class="transaction-name">${categoryIcon} ${nameInput.value}</p>
@@ -70,6 +71,18 @@ const checkCategory = transaction => {
 	}
 }
 
+const deleteTransaction = id => {
+	const transactionToDelete = document.getElementById(id)
+	const transactionAmount = parseFloat(transactionToDelete.childNodes[3].textContent)
+	const transactionIndex = moneyArr.indexOf(transactionAmount)
+	moneyArr.splice(transactionIndex, 1)
+
+	//using this delete the div
+	transactionToDelete.remove()
+
+	updateBalance()
+}
+
 const updateBalance = () => {
 	const total = moneyArr.reduce((acc, item) => (acc += item), 0)
 	availableMoney.textContent = `${total}zł`
@@ -94,6 +107,27 @@ const clearInputs = () => {
 	categoryInput.selectedIndex = 0
 }
 
+const deleteAllTransactions = () => {
+	incomeSection.innerHTML = `
+	<h3>Income:</h3>`
+	expenseSection.innerHTML = `
+	<h3>Expenses:</h3>`
+	moneyArr = [0]
+	updateBalance()
+}
+
+const changeStyleToLight = () => {
+	root.style.setProperty('--first-color', '#F9F9F9')
+	root.style.setProperty('--second-color', '#14161F')
+	root.style.setProperty('--border-color', 'rgba(0, 0, 0, .2)')
+}
+
+const changeStyleToDark = () => {
+	root.style.setProperty('--first-color', '#14161F')
+	root.style.setProperty('--second-color', '#F9F9F9')
+	root.style.setProperty('--border-color', 'rgba(255, 255, 255, .4)')
+}
+
 addTransactionBtn.addEventListener('click', showPanel)
 cancelBtn.addEventListener('click', closePanel)
 saveBtn.addEventListener('click', () => {
@@ -101,3 +135,7 @@ saveBtn.addEventListener('click', () => {
 		createNewTransaction()
 	}
 })
+
+deleteAllBtn.addEventListener('click', deleteAllTransactions)
+lightBtn.addEventListener('click', changeStyleToLight)
+darkBtn.addEventListener('click', changeStyleToDark)
