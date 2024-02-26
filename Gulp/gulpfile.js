@@ -10,6 +10,8 @@ const webp = require('gulp-webp')
 const sourcemaps = require('gulp-sourcemaps')
 const gclean = require('gulp-clean')
 const kit = require('gulp-kit')
+const fs = require('fs')
+const readline = require('readline')
 
 const browserSync = require('browser-sync').create()
 const reload = browserSync.reload
@@ -84,6 +86,55 @@ function watchForChanges(done) {
 	done()
 }
 
+function createStructure(done) {
+	const rl = readline.createInterface({
+		input: process.stdin,
+		output: process.stdout,
+	})
+
+	process.stdin.on('data', data => {
+		const answer = data.toString().trim().toLowerCase()
+		if (answer === 'y') {
+			rl.close()
+			const folders = ['html', 'src', 'src/img', 'src/js', 'src/sass', 'dist', 'dist/css', 'dist/js']
+
+			folders.forEach(folder => {
+				if (!fs.existsSync(folder)) {
+					fs.mkdirSync(folder)
+					console.log(`Folder "${folder}" created.`)
+				} else {
+					console.log(`Folder "${folder}" already exists.`)
+				}
+			})
+
+			fs.writeFileSync('./src/sass/style.scss', '* {\n\tbackground-color: #333;\n}\n')
+			console.log('File "style.scss" created in "src/sass" directory.')
+
+			fs.writeFileSync('./src/js/script.js', '')
+			console.log('File "script.js" created in "src/js" directory.')
+
+			const indexContent = `<!DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8">\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">\n\t<title>Document</title>\n\t<link rel="stylesheet" href="./dist/css/style.css">\n</head>\n<body>\n\t<!-- @@include('./html/_header.kit') -->\n\t<!-- @@include('./html/_nav.kit') -->\n\n\t<main>\n\t\t<!-- Content here -->\n\t</main>\n\n\t<!-- @@include('./html/_footer.kit') -->\n</body>\n<script src="./dist/js/script.min.js"></script>\n</html>`
+			fs.writeFileSync('./index.html', indexContent)
+			console.log('File "index.html" created in the root directory.')
+
+			const kitFiles = ['header', 'nav', 'footer']
+
+			kitFiles.forEach(file => {
+				fs.writeFileSync(`./html/_${file}.kit`, `<!-- ${file} -->\n   <!-- @include 'name.kit' -->`)
+				console.log(`File "_${file}.kit" created in "html" directory.`)
+			})
+
+			done()
+		} else if (answer === 'n') {
+			console.log('Operation cancelled.')
+			rl.close()
+			done()
+		}
+	})
+
+	rl.question('Are you sure you want to create a new structure? (y/n): ', () => {})
+}
 const mainFunctions = parallel(handleKits, sassCompiler, jsCompiler, imgConverter)
 exports.default = series(mainFunctions, startBrowserSync, watchForChanges)
 exports.clean = clean
+exports.createStructure = createStructure
